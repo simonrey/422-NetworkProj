@@ -1,0 +1,63 @@
+
+//	else{
+//		if(mst->nodesInTree==0){
+//			struct edge* ptr=malloc(sizeof(struct edge));
+//			ptr=addNode(true,seed,nodeArray,mst,NULL,NULL);
+//			findPossibleMST(pT,seed,mst,edgeListStart,nodeArray,ptr);
+//		}
+//
+//		if(mst->nodesInTree<mst->maxPossibleNodes){
+//			//look through LL to find cheapest edge, with a source in MST, with destination not in MST
+//			struct edge * index=edgeListStart;
+//			struct edge * presentBest=edgeListStart;
+//			while(!index->isLast){
+//				if(nodeArray[index->forwardSource].inTree && !nodeArray[index->forwardDestination].inTree  && index->edgeEff>presentBest->edgeEff && index->edgeCost<presentBest->edgeCost){
+//					presentBest=index;
+//				}
+//				index=index->ptrNext;
+//			}
+//			struct edge * ptr=malloc(sizeof(struct edge));
+//			ptr=addNode(false,seed,nodeArray,mst,presentBest,emptyElement);
+//			findPossibleMST(pT,0,mst,edgeListStart,nodeArray,ptr);
+//		}
+//
+
+
+//		if(mst->nodesInTree<mst->maxPossibleNodes){
+//			//look through LL to find cheapest edge, with a source in MST, with destination not in MST
+//			struct edge * presentBest;
+//			if(mst->nodesInTree==1){
+//				struct edge * index=edgeListStart->ptrNext;
+//				presentBest=edgeListStart;
+//				while(index!=edgeListStart){
+//					if(index->forwardSource==edgeListStart->forwardSource || index->backwardsSource==edgeListStart->forwardSource){
+//						if(((nodeArray[index->forwardSource].inTree && !nodeArray[index->forwardDestination].inTree)||(nodeArray[index->backwardsSource].inTree && !nodeArray[index->backwardsDestination].inTree)) && index->edgeEff<presentBest->edgeEff && !index->blacklist){
+//							presentBest=index;
+//						}
+//					}
+//					index=index->ptrNext;
+//				}
+//			}
+//			else{
+//				struct edge * index=edgeListStart->ptrNext;
+//				presentBest=NULL;
+//				while(index!=edgeListStart){
+//					if(index->blacklist){
+//						index=index->ptrNext;
+//						continue;
+//					}
+//					if(index->forwardSource==emptyElement->_sideInTree|| index->backwardsSource==emptyElement->_sideInTree){
+//						if(presentBest==NULL && (!nodeArray[index->forwardDestination].inTree || !nodeArray[index->backwardsDestination].inTree)){
+//							presentBest=index;
+//						}
+//						if(((nodeArray[index->forwardSource].inTree && !nodeArray[index->forwardDestination].inTree)||!(nodeArray[index->backwardsDestination].inTree && nodeArray[index->backwardsSource].inTree)) && index->edgeEff<presentBest->edgeEff && !index->blacklist){
+//							presentBest=index;
+//						}
+//					}
+//					index=index->ptrNext;
+//				}
+//			}
+//			struct edge * ptr=malloc(sizeof(struct edge));
+//			ptr=addNode(false,seed,nodeArray,mst,presentBest,emptyElement);
+//			findPossibleMST(pT,0,mst,presentBest,nodeArray,ptr);
+//		}
